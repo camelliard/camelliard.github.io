@@ -29,7 +29,7 @@
 /**********************************************************************/
 @font-face {
 	font-family: "brix-sans-light";
-	src: url("../fonts/Brix Sans/HVD Fonts - BrixSansLight.otf") format("opentype");
+	src: url("fonts/Brix Sans/HVD Fonts - BrixSansLight.otf") format("opentype");
 }
 
 /**********************************************************************/
@@ -284,30 +284,30 @@ header.masthead img {
 }
 
 #landing-about {
-  background-image: url("../img/landing-default.jpeg");
+  background-image: url("img/landing-default.jpeg");
 }
 
 #landing-menu {
-	background-image: url("../img/Menu_Banner1.jpg");
+	background-image: url("img/Menu_Banner1.jpg");
 	background-position: 40% 30%;
 }
 
 #landing-services {
-	background-image: url("../img/ingredients-carousel/DSC02828.jpg");
+	background-image: url("img/ingredients-carousel/DSC02828.jpg");
 /*	background-position: 0% 50%;*/
 }
 
 #landing-merch {
-	background-image: url("../img/Merch_Banner.jpg");
+	background-image: url("img/Merch_Banner.jpg");
 	background-position: 54% 63%;
 }
 
 #landing-press {
-	background-image: url("../img/community-carousel/DSC02759.jpg");
+	background-image: url("img/community-carousel/DSC02759.jpg");
 }
 
 #landing-jobs {
-	background-image: url("../img/community-carousel/IMG_20180303_115608_1.jpg")
+	background-image: url("img/community-carousel/IMG_20180303_115608_1.jpg")
 }
 
 #landing-menu, #landing-services, #landing-merch, #landing-press, #landing-jobs {
