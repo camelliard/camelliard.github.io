@@ -1,0 +1,769 @@
+/* stylesheet for Camellia Rd's website.*/
+/* the following values are the corresponding screen sizes:
+/* xs: <	576px
+/* sm: >=	576px
+/* md: >=	768px
+/* lg: >=	992px
+/* xl: >=	1200px
+
+/**********************************************************************/
+/* google fonts
+/**********************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,400,500,600,700,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin|Source+Sans+Pro');
+/**********************************************************************/
+/* setting variables
+/**********************************************************************/
+:root {
+	--primary-color: #ffffff;
+	--secondary-color: #cbcbcb;
+	--base-color: #91672F;
+	--highlight-color: #88B04B;
+	--text-dark: #434343;
+	--text-light: #bdbdbd;
+}
+
+/**********************************************************************/
+/* fonts for our use (cut out fonts we don't use later to cut down on load time)
+/**********************************************************************/
+@font-face {
+	font-family: "brix-sans-light";
+	src: url("../fonts/Brix Sans/HVD Fonts - BrixSansLight.otf") format("opentype");
+}
+
+/**********************************************************************/
+/* generic styling for general html tags
+/**********************************************************************/
+body, html {
+	width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+h1 {
+font-family: 'Roboto', sans-serif;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+h2 {
+font-family: 'Roboto', sans-serif;
+
+}
+p {
+font-family: 'Roboto', sans-serif;
+}
+
+/* figure out a better system than important */
+a.live-page {
+	font-weight: bold !important;
+	color: var(--highlight-color) !important;
+}
+
+.bg-primary {
+	background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+	background-color: var(--secondary-color) !important;
+}
+
+.text-soft {
+	color: var(--text-light);
+}
+
+.fa-times {
+	color: var(--text-dark);
+}
+
+.fa-times:hover {
+	color: var(--text-light);
+}
+
+/**********************************************************************/
+/* for centered divs
+/**********************************************************************/
+.center-wrapper {
+	top: 50%;
+	left: 50%;
+	margin: 0 auto;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+
+/**********************************************************************/
+/* styling for whenever we use the logo
+/**********************************************************************/
+#logo img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-top: 5px;
+  margin-left: -76px;
+}
+
+
+/**********************************************************************/
+/* styling for animations
+/**********************************************************************/
+.press-card:hover i, .menu-cat:hover i, .ig-tag:hover i {
+	transform: translate(20px, 0px);
+	color: var(--highlight-color);
+}
+
+.fa.fa-times:hover {
+	transform: rotate(45deg);
+}
+
+.fa.fa-bars:hover {
+	color: var(--text-light);
+}
+
+#submenu a h1:hover i {
+	transform: translate(-20px, 0px);
+	color: var(--highlight-color);
+}
+
+i {
+	-webkit-transition: transform .5s;
+	-moz-transition: transform .5s;
+	-ms-transition: transform .5s;
+	-o-transition: transform .5s;
+	transition: transform .5s;
+}
+
+/**********************************************************************/
+/* styling for the navbar
+/**********************************************************************/
+.navbar {
+  background: var(--primary-color);
+	opacity: .95;
+  box-shadow: 0px 5px 30px #505151;
+  padding: 15px 0;
+	position: fixed;
+	z-index: 1;
+}
+
+.nav-item.nav-link {
+	color: var(--text-dark);
+	font-size: 18px;
+}
+
+.nav-item.nav-link:hover {
+	color: var(--text-light);
+}
+
+.navbar > .nav-item.nav-link{
+	display: none;
+}
+
+a.nav-expander {
+	background: none repeat scroll 0 0;
+	padding: 6px 10px;
+	font-size: 24px;
+	z-index: 12;
+}
+
+a.nav-expander i {
+	color: var(--text-dark);
+}
+
+a.nav-expander:hover {
+	cursor: pointer;
+}
+
+@media (min-width: 992px) {
+	.navbar-header.pull-right {
+		display: none;
+	}
+
+	.navbar > a.nav-item.nav-link {
+		padding: 15px 30px;
+		display: inline;
+	}
+}
+
+nav {
+	background: var(--primary-color);
+	text-align: right;
+	height: 100%;
+	overflow: auto;
+	position: fixed;
+	right: -75%;
+	width: 75%;
+	max-width: 300px;
+	font-size: 15px;
+	top: 0;
+	z-index: 2000;
+
+	transition: right 0.3s ease-in-out 0s;
+	-webkit-transition: right 0.3s ease-in-out 0s;
+	-moz-transition: right 0.3s ease-in-out 0s;
+	-o-transition: right 0.3s ease-in-out 0s;
+}
+
+.nav-expanded nav {
+	right: 0;
+}
+
+body.nav-expanded {
+	transition: right 0.4s ease-in-out 0s;
+	-webkit-transition: right 0.4s ease-in-out 0s;
+	-moz-transition: right 0.4s ease-in-out 0s;
+	-o-transition: right 0.4s ease-in-out 0s;
+}
+
+#nav-close {
+	font-size: 24px;
+	border-bottom: 1px solid var(--primary-color);
+}
+
+.nav-menu li {
+	margin: 0 10px;
+	padding: 4px;
+}
+
+.nav-menu li a {
+	border-bottom: 1px solid var(--text-light);
+}
+
+#cover {
+  color: white;
+  background-color: white;
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#cover.show {
+  opacity: 0.618;
+  z-index: 1000;
+}
+
+
+/**********************************************************************/
+/* styling for the masthead (landing pictures)
+/**********************************************************************/
+header.masthead {
+  position: relative;
+	width: 100%;
+  min-height: 500px;
+	margin-bottom: -10px;
+  text-align: center;
+	display: inline-block;
+  color: white;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+header.masthead .header-content {
+	position: relative;
+	width: 100%;
+	min-height: inherit;
+	padding: 75px 30px 25px;
+	text-align: center;
+}
+
+header.masthead img {
+	width: 320px;
+	height: 100px;
+}
+
+#landing-about {
+  background-image: url("../img/landing-default.jpeg");
+}
+
+#landing-menu {
+	background-image: url("../img/Menu_Banner1.jpg");
+	background-position: 40% 30%;
+}
+
+#landing-services {
+	background-image: url("../img/ingredients-carousel/DSC02828.jpg");
+/*	background-position: 0% 50%;*/
+}
+
+#landing-merch {
+	background-image: url("../img/Merch_Banner.jpg");
+	background-position: 54% 63%;
+}
+
+#landing-press {
+	background-image: url("../img/community-carousel/DSC02759.jpg");
+}
+
+#landing-jobs {
+	background-image: url("../img/community-carousel/IMG_20180303_115608_1.jpg")
+}
+
+#landing-menu, #landing-services, #landing-merch, #landing-press, #landing-jobs {
+	margin-bottom: 30px;
+}
+
+/* Header masthead styling for window width more than 768px */
+@media (min-width: 768px) {
+	header.masthead {
+		height: 100%;
+		min-height: 600px;
+	}
+
+	header.masthead .header-content {
+		position: absolute;
+		top: 48%;
+		padding: 0 50px;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+
+	header.masthead img {
+		width: 640px;
+		height: 200px;
+	}
+}
+
+/**********************************************************************/
+/* styling for all pages
+/**********************************************************************/
+/* #menu, #press, #services, #merchandise, */
+#submenu {
+	/* padding for all pages */
+	padding-top: 128px;
+}
+
+
+/**********************************************************************/
+/* styling for info cards (formatting image and text content)
+/**********************************************************************/
+.info-secondary, .info-primary, section{
+	text-align: center;
+}
+
+.gallery {
+	left: 50%;
+	max-width: 720px;
+	max-height: 480px;
+	position: relative;
+	transform: translate(-50%);
+	overflow: hidden;
+}
+
+.gallery img {
+	width: 100%;
+}
+
+#page-top section {
+	margin-top: 50px;
+}
+
+@media (min-width: 992px) {
+	/* text is on the left, images on the right */
+	div.info-primary {
+		text-align: left;
+	}
+
+	/* text is on the right, images on the left */
+	div.info-secondary {
+		text-align: right;
+	}
+}
+
+/**********************************************************************/
+/* menu styling, and other pages
+/**********************************************************************/
+
+#menu {
+	text-align: center;
+}
+
+#menu div > a {
+	width: 100%;
+}
+
+.menu-item {
+	text-align: left;
+	color: var(--text-dark);
+}
+
+#menu-container a {
+	text-decoration: none;
+	color: var(--text-dark);
+}
+
+#menu-container a:hover{
+	text-decoration: none;
+}
+
+.menu-cat {
+	border: 1px solid var(--primary-color);
+	padding-top: 20px;
+}
+
+.menu-cat:hover {
+/*	background-color: var(--secondary-color); */
+	border: 1px solid var(--secondary-color);
+	cursor: pointer;
+}
+
+@media (min-width: 576px) {
+	.menu-cat .col-sm {
+		column-count: 2;
+	}
+}
+
+/**********************************************************************/
+/* styling for submenu page
+/**********************************************************************/
+#submenu {
+	margin-bottom: 50px;
+}
+
+#submenu .menu-slide img {  /* TODO: make this responsive and look better */
+	width: 100%;
+}
+
+#submenu a.header {
+	z-index: 0;
+	color: var(--text-dark);
+}
+
+#submenu a.header:hover {
+	text-decoration: none;
+/*	color: var(--text-light);*/
+}
+
+.menu-slide {
+	margin-top: 20px;
+	display: none;
+}
+
+.gallery-selector {
+	margin-top: 20px;
+	justify-content: center;
+}
+
+.table-entry {
+	color: var(--text-dark);
+	height: 30px;
+	font-size: 17px;
+	padding-top: 2px;
+	border: 1px solid var(--primary-color);
+}
+
+.table-entry:not(.active):hover {
+	cursor: pointer;
+	border: 1px solid var(--text-light);
+}
+
+.table-entry.active {
+	background-color: var(--highlight-color);
+	color: white;
+	cursor: default;
+}
+
+.item-photo {
+/*	height: 400px;*/
+}
+
+.item-description {
+	padding-top: 15px;
+	text-align: left;
+}
+
+/* default (mobile) doesn't show */
+.gallery-slider {
+	display: none;
+}
+
+.thumbnail {
+	display: inline-block;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.active, .thumbnail:hover {
+	opacity: 1;
+}
+
+@media(min-width: 768px) {
+	.gallery-selector {
+		margin-top: 0px;
+		justify-content: flex-start;
+	}
+
+	.gallery-slider {
+		margin-top: 40px;
+		margin-left: 15px;
+		max-width: 24.5em;
+		padding: 0px;
+		overflow-y: scroll;
+		display: inline-flex;
+	}
+
+	.gallery-slider img {
+		height: 100%;
+	}
+
+	.thumbnail {
+		height: 75px;
+	}
+}
+
+/* make this less gross and hard-coded lol */
+@media(min-width: 992px) {
+	.gallery-slider {
+		max-width: 33.2em;
+	}
+
+	.thumbnail {
+		height: 100px;
+	}
+}
+
+@media(min-width: 1200px) {
+	.gallery-slider {
+		max-width: 39.75em;
+	}
+}
+
+
+/**********************************************************************/
+/* styling for press page
+/**********************************************************************/
+#press a {
+	text-decoration: none;
+	color: var(--text-dark);
+}
+
+.press-card {
+	text-align: center;
+}
+
+.press-card p {
+	margin-top: 10px;
+}
+
+.press-card img {
+	height: 200px;
+	width: 200px;
+	margin-bottom: 30px;
+}
+
+#lighthouse-logo {
+	height: 220px;
+}
+
+.press-card {
+	padding-top: 30px ;
+	border: 1px solid var(--primary-color);
+}
+
+.press-card:hover {
+	border: 1px solid var(--secondary-color);
+}
+
+@media (min-width: 768px) {
+	.press-text {
+		text-align: left;
+	}
+
+	.press-card .col-md-4 {
+		text-align: right;
+	}
+}
+
+/**********************************************************************/
+/* styling for services page
+/**********************************************************************/
+#services {
+	min-height: 100%;
+}
+
+#dd-logo {
+	max-width: 200px;
+}
+
+.service-card {
+	text-align: center;
+}
+
+.service-card div {
+	padding-top: 10px;
+}
+
+.fa-truck, .fa-leaf {
+	font-size: 200px;
+	color: var(--highlight-color);
+}
+
+@media (min-width: 768px) {
+	.service-card-primary .service-text {
+		text-align: left;
+	}
+
+	.service-card-primary .col-md-4 {
+		text-align: right;
+	}
+
+	.service-card-secondary .service-text {
+		text-align: right;
+	}
+
+	.service-card-secondary .col-md-4 {
+		text-align: left;
+	}
+}
+
+/**********************************************************************/
+/* styling for merchandise page
+/**********************************************************************/
+#merchandise {
+	min-height: 100%;
+}
+
+@media (min-width: 768px) {
+	.merch-text {
+		text-align: left;
+	}
+
+}
+
+.gift-card-gallery {
+	max-width: 360px;
+/*	width: 480px;*/
+}
+
+/**********************************************************************/
+/* styling for forms
+/**********************************************************************/
+.forms {
+	margin-top: 30px;
+
+}
+
+iframe {
+	height: 700px;
+/*	max-width: 75%;*/
+	min-width: 100%;
+}
+
+/**********************************************************************/
+/* styling for instagram feed
+/**********************************************************************/
+#ig-feed {
+	text-align: center;
+	overflow: hidden;
+}
+
+.ig-tag {
+	text-decoration: none;
+	color: var(--highlight-color);
+}
+
+.ig-tag i {
+	color: var(--primary-color);
+}
+
+.ig-tag:hover {
+	text-decoration: none;
+	color: var(--highlight-color);
+}
+
+#ig-title {
+	margin-bottom: 0;
+}
+
+#ig-follow {
+	color: var(--text-light);
+	margin-bottom: 30px;
+}
+
+#instafeed img {
+	margin: 5px;
+	width: 15%;
+}
+
+@media (max-width: 768px) {
+	#instafeed img {
+		width: 19%;
+	}
+}
+
+hr {
+	width: 50%;
+}
+
+/**********************************************************************/
+/* styling for footer
+/**********************************************************************/
+footer {
+	margin-top: 50px;
+	background: var(--primary-color);
+	color: var(--text-dark);
+	border-top: 1px solid var(--text-light);
+}
+
+.footer-content {
+	font-size: 15px;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#map {
+	margin: 0 auto;
+	width: 250px;
+	height: 200px;
+}
+
+.footer-content.social-media {
+  text-align: center;
+}
+
+.social-media a {
+	text-decoration: none;
+}
+
+.social-media-icon {
+	font-size: 30px;
+	width: 30px;
+	color: var(--text-dark);
+}
+
+.social-media-icon:hover {
+	color: var(--highlight-color);
+}
+
+#cp-text {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+
+/* Set the anchor for #about */
+#about_parent {
+  position: relative;
+}
+#about {
+  position:absolute;
+  top:-130px;
+}
+
+.job-form {
+	height: 1400px;
+}
